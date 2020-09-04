@@ -43,23 +43,6 @@ public class DatabaseAccess {
 
     public static void writeToDB(Connection connection, ArrayList<Employee> employees) throws SQLException {
         // insert data
-
-        // using PreparedStatement is incredibly slower than using concatenation into a single INSERT command
-
-//        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employeedatabase.employees VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-//        for (Employee e : employees) {
-//            preparedStatement.setString(1, e.getId());
-//            preparedStatement.setString(2, e.getPrefix());
-//            preparedStatement.setString(3, e.getFirstName());
-//            preparedStatement.setString(4, e.getMiddleInitial());
-//            preparedStatement.setString(5, e.getLastName());
-//            preparedStatement.setString(6, e.getGender());
-//            preparedStatement.setString(7, e.getEmail());
-//            preparedStatement.setDate(8, e.getDateOfBirth());
-//            preparedStatement.setDate(9, e.getDateOfJoining());
-//            preparedStatement.setInt(10, e.getSalary());
-//            preparedStatement.execute();
-//        }
         Statement statement = connection.createStatement();
         String insertQuery = "INSERT INTO " + LoadProperties.table + " VALUES ";
         for (Employee e : employees) {

@@ -49,7 +49,6 @@ public class DatabaseWriteThreaded implements Runnable {
         threadStart = System.nanoTime(); // take this time as start time for all threads
         for (Thread t : threads) {
             t.start();
-//            t.join();
         }
 
         // waits for all threads to complete before main thread can continue
